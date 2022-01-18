@@ -1,0 +1,63 @@
+{
+  "name": "test-electron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-builder build --publish never",
+    "package-all": "electron-builder build -mwl",
+    "package-mac": "electron-builder build --mac",
+    "package-linux": "electron-builder build --linux",
+    "package-win": "electron-builder build --win --x64",
+    "postinstall": "install-app-deps"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^16.0.6",
+    "electron-builder": "^22.14.5"
+  },
+  "dependencies": {
+    "electron-is-dev": "^2.0.0",
+    "sqlite3": "^5.0.2"
+  },
+  "build": {
+    "productName": "Test Electron",
+    "appId": "app.openworship.test",
+    "files": [
+      "*.js",
+      "index.html"
+    ],
+    "dmg": {
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "linux": {
+      "target": [
+        "deb",
+        "AppImage"
+      ],
+      "category": "Productivity"
+    },
+    "directories": {
+      "buildResources": "resources",
+      "output": "release"
+    }
+  }
+}
