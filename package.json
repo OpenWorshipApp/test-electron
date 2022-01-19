@@ -2,17 +2,16 @@
   "name": "test-electron",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "./electron/main.js",
   "scripts": {
     "start": "electron .",
-    "package": "electron-builder build --publish never",
-    "package-all": "electron-builder build -mwl",
-    "package-mac": "electron-builder build --mac",
-    "package-linux": "electron-builder build --linux",
-    "package-win": "electron-builder build --win --x64",
+    "pack": "electron-builder build --publish never",
+    "pack:all": "electron-builder build -mwl",
+    "pack:mac": "electron-builder build --mac",
+    "pack:linux": "electron-builder build --linux",
+    "pack:win": "electron-builder build --win --x64",
     "postinstall": "install-app-deps"
   },
-  "author": "",
   "license": "ISC",
   "devDependencies": {
     "electron": "^16.0.6",
@@ -26,8 +25,9 @@
     "productName": "Test Electron",
     "appId": "app.openworship.test",
     "files": [
-      "*.js",
-      "index.html"
+      "electron/**/*",
+      "public/**/*",
+      "package.json"
     ],
     "dmg": {
       "contents": [
